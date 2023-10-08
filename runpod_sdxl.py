@@ -1437,7 +1437,7 @@ def setup_parser() -> argparse.ArgumentParser:
         default=7.5,
         help="unconditional guidance scale: eps = eps(x, empty) + scale * (eps(x, cond) - eps(x, empty)) / guidance scale",
     )
-    parser.add_argument("--ckpt", type=str, default="/workspace/kohya_ss/dreamxl.safetensors", help="path to checkpoint of model / モデルのcheckpointファイルまたはディレクトリ")
+    parser.add_argument("--ckpt", type=str, default="dreamxl.safetensors", help="path to checkpoint of model / モデルのcheckpointファイルまたはディレクトリ")
     parser.add_argument(
         "--vae", type=str, default=None, help="path to checkpoint of vae to replace / VAEを入れ替える場合、VAEのcheckpointファイルまたはディレクトリ"
     )
@@ -1476,7 +1476,7 @@ def setup_parser() -> argparse.ArgumentParser:
         "--network_module", type=str, default=["networks.lora"], nargs="*", help="additional network module to use / 追加ネットワークを使う時そのモジュール名"
     )
     parser.add_argument(
-        "--network_weights", type=str, default=["/workspace/kohya_ss/bld1_7_4flt1_5bld1_.safetensors"], nargs="*", help="additional network weights to load / 追加ネットワークの重み"
+        "--network_weights", type=str, default=["bld1_7_4flt1_5bld1_.safetensors"], nargs="*", help="additional network weights to load / 追加ネットワークの重み"
     )
     parser.add_argument("--network_mul", type=float, default=[0.7], nargs="*", help="additional network multiplier / 追加ネットワークの効果の倍率")
     parser.add_argument(
@@ -1953,7 +1953,7 @@ if args.textual_inversion_embeddings:
 
 
 def load_lora(args):
-    weights_file = "/workspace/kohya_ss/bld1_7_4flt1_5bld1_.safetensors"
+    weights_file = "bld1_7_4flt1_5bld1_.safetensors"
     multiplier = 0.7
     network.restore_weights()
 
